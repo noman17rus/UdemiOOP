@@ -1,17 +1,22 @@
 import test.MyArrayList;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        MyArrayList emloyees = getEmployees();
-        emloyees.add("James");
-        emloyees.remove("Emma");
-        for (int i = 0; i < emloyees.getSize(); i++) {
-            System.out.println(emloyees.get(i));
+        ArrayList<String> names = getEmployees();
+        ArrayList<Integer> numbers = getNumbers();
+        ArrayList<String> result = new ArrayList<>();
+        for (int i = 0; i < numbers.size(); i++) {
+            result.add((numbers.get(i)) + " - " + names.get(i));
+        }
+        for (String s : result) {
+            System.out.println(s);
         }
     }
 
-    private static MyArrayList getEmployees() {
-        MyArrayList employees = new MyArrayList();
+    private static ArrayList<String> getEmployees() {
+        ArrayList<String> employees = new ArrayList<>();
         employees.add("John");
         employees.add("Olivia");
         employees.add("Emma");
@@ -19,4 +24,13 @@ public class Main {
         employees.add("Nick");
         return employees;
     }
+
+    private static ArrayList<Integer> getNumbers() {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            numbers.add(i);
+        }
+        return numbers;
+    }
+
 }
